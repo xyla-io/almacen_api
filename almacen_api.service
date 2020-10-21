@@ -1,0 +1,13 @@
+[Unit]
+Description=Almacen API
+After=network.target
+
+[Service]
+WorkingDirectory=/absolute/path/to/project/root
+Restart=always
+ExecStart=/bin/bash serve.sh
+User=projectuser
+Group=projectgroup
+
+[Install]
+WantedBy=multi-user.target

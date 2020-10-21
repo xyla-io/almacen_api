@@ -1,0 +1,977 @@
+{
+	"info": {
+		"_postman_id": "5afa0bb9-7b72-4ed9-89a1-4d03d9fcfb9f",
+		"name": "almacen_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "companies",
+			"item": [
+				{
+					"name": "tags",
+					"item": [
+						{
+							"name": "tags/parsers",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{longcatAppToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseURL}}/companies/{{companyIdentifier}}/tags/parsers",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"companies",
+										"{{companyIdentifier}}",
+										"tags",
+										"parsers"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "switch on parser suffix",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseURL}}/companies/{{companyIdentifier}}/tags/parsers",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"companies",
+												"{{companyIdentifier}}",
+												"tags",
+												"parsers"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1115"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/1.0.1 Python/3.7.5"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jul 2020 16:40:27 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{}"
+								}
+							]
+						},
+						{
+							"name": "tags/parsers/:parser",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{longcatAppToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"key_map\": {\n        \"construct\": {\n            \"delimiter\": \"str._\",\n            \"targets\": [\n                {\n                    \"index\": 1,\n                    \"label\": \"str.region\"\n                },\n                {\n                    \"index\": 2,\n                    \"label\": \"str.geo\"\n                },\n                {\n                    \"index\": 3,\n                    \"label\": \"str.channel\"\n                },\n                {\n                    \"index\": 4,\n                    \"label\": \"str.os\"\n                },\n                {\n                    \"index\": 5,\n                    \"label\": \"str.audience_l1\"\n                },\n                {\n                    \"index\": 6,\n                    \"label\": \"str.audience_l2\"\n                },\n                {\n                    \"index\": 7,\n                    \"label\": \"str.audience_l3\"\n                },\n                {\n                    \"index\": 8,\n                    \"label\": \"str.audience_l4\"\n                },\n                {\n                    \"index\": 9,\n                    \"label\": \"str.custom_slot\"\n                },\n                {\n                    \"index\": 10,\n                    \"label\": \"str.date_launched\"\n                }\n            ]\n        },\n        \"map\": \"iomap.io_channel.parse/IOSequenceParser\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseURL}}/companies/{{companyIdentifier}}/tags/parsers/{{tagParserName}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"companies",
+										"{{companyIdentifier}}",
+										"tags",
+										"parsers",
+										"{{tagParserName}}"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "sequence",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"key_map\": {\n        \"construct\": {\n            \"delimiter\": \"str._\",\n            \"targets\": [\n                {\n                    \"index\": -2,\n                    \"label\": \"str.strategy\"\n                },\n                {\n                    \"index\": -3,\n                    \"label\": \"str.country\"\n                },\n                {\n                    \"index\": -4,\n                    \"label\": \"str.channel\"\n                },\n                {\n                    \"index\": -5,\n                    \"label\": \"str.product\"\n                },\n                {\n                    \"index\": -6,\n                    \"label\": \"str.agency\"\n                }\n            ]\n        },\n        \"map\": \"iomap.io_channel.parse/IOSequenceParser\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/companies/{{companyIdentifier}}/tags/parsers/{{tagParserName}}",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"companies",
+												"{{companyIdentifier}}",
+												"tags",
+												"parsers",
+												"{{tagParserName}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "48"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/1.0.1 Python/3.7.5"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jul 2020 16:45:38 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"column_names\": null,\n    \"row_count\": 1,\n    \"rows\": null\n}"
+								},
+								{
+									"name": "regex",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"key_map\": {\n        \"construct\": {\n            \"targets\": [\n                {\n                    \"pattern\": \"str.\",\n                    \"label\": \"str.parser_identifier\"\n                },\n                {\n                    \"pattern\": \"str.^CONVENTIONv1_\",\n                    \"replacement\": \"str.apple_search_ads-campaign-tag-CONVENTIONv1\",\n                    \"label\": \"str.parser_identifier\"\n                },\n                {\n                    \"pattern\": \"str._t1$\",\n                    \"replacement\": \"str.apple_search_ads-campaign-tag-t1\",\n                    \"label\": \"str.parser_identifier\"\n                }\n            ]\n        },\n        \"map\": \"iomap.io_channel.parse/IORegexParser\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/companies/{{companyIdentifier}}/tags/parsers/{{tagParserName}}",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"companies",
+												"{{companyIdentifier}}",
+												"tags",
+												"parsers",
+												"{{tagParserName}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "48"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/1.0.1 Python/3.7.5"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jul 2020 16:44:02 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"column_names\": null,\n    \"row_count\": 1,\n    \"rows\": null\n}"
+								},
+								{
+									"name": "switch",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"key_map\": {\n        \"construct\": {\n            \"parser_identifier_key_map\": {\n                \"iokeymap\": \"iokeymap.map://tag_parser/apple_search_ads-campaign-identifier\",\n                \"output\": {\n                \t\"parser_identifier\": \"str.run.parser_identifier\"\n                }\n            },\n            \"parser_provider_key_map\": \"iokeymap.parser_provider\"\n        },\n        \"map\": \"iomap.io_channel.parse/IOSwitchParser\"\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseURL}}/companies/{{companyIdentifier}}/tags/parsers/{{tagParserName}}",
+											"host": [
+												"{{baseURL}}"
+											],
+											"path": [
+												"companies",
+												"{{companyIdentifier}}",
+												"tags",
+												"parsers",
+												"{{tagParserName}}"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "48"
+										},
+										{
+											"key": "Server",
+											"value": "Werkzeug/1.0.1 Python/3.7.5"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 02 Jul 2020 16:42:28 GMT"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"column_names\": null,\n    \"row_count\": 1,\n    \"rows\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "tags/parsers/:parser",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{longcatAppToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseURL}}/companies/{{companyIdentifier}}/tags/parsers/{{tagParserName}}",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"companies",
+										"{{companyIdentifier}}",
+										"tags",
+										"parsers",
+										"{{tagParserName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tags/parsers/:parser/parse",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{longcatAppToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"names\": [\n        \"CAMPAIGNNAME1\",\n        \"CAMPAIGNNAME2\"\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{baseURL}}/companies/{{companyIdentifier}}/tags/parsers/{{tagParserName}}/parse",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"companies",
+										"{{companyIdentifier}}",
+										"tags",
+										"parsers",
+										"{{tagParserName}}",
+										"parse"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tags/parsers/:parser/tag",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{longcatAppToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"urls_to_names\": {\n\t\t\"channel_entity://Apple/campaign/123\": \"CAMPAIGNNAME1\"\n\t},\n\t\"update_mode\": \"url\"\n}"
+								},
+								"url": {
+									"raw": "{{baseURL}}/companies/{{companyIdentifier}}/tags/parsers/{{tagParserName}}/tag",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"companies",
+										"{{companyIdentifier}}",
+										"tags",
+										"parsers",
+										"{{tagParserName}}",
+										"tag"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tags",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{longcatAppToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseURL}}/companies/{{companyIdentifier}}/tags",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"companies",
+										"{{companyIdentifier}}",
+										"tags"
+									],
+									"query": [
+										{
+											"key": "include_empty",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tags",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{longcatAppToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"tags\": [\n        {\n            \"url\": \"channel_entity://Apple/campaign/123\",\n            \"key\": \"tag_1\",\n            \"value\": \"value_1\"\n        }\n    ]\n}"
+								},
+								"url": {
+									"raw": "{{baseURL}}/companies/{{companyIdentifier}}/tags",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"companies",
+										"{{companyIdentifier}}",
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tags",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{longcatAppToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"tags\": [\n\t\t{\n\t\t\t\"url\": \"channel_entity://Apple/campaign/123\",\n\t\t\t\"key\": \"country\",\n\t\t\t\"value\": \"US\"\n\t\t}\n\t\t]\n}"
+								},
+								"url": {
+									"raw": "{{baseURL}}/companies/{{companyIdentifier}}/tags",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"companies",
+										"{{companyIdentifier}}",
+										"tags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tags/standard",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{longcatAppToken}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{baseURL}}/companies/{{companyIdentifier}}/tags/standard",
+									"host": [
+										"{{baseURL}}"
+									],
+									"path": [
+										"companies",
+										"{{companyIdentifier}}",
+										"tags",
+										"standard"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "entities/:entity",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{appToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/companies/{{companyIdentifier}}/entities/{{tagEntity}}",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"companies",
+								"{{companyIdentifier}}",
+								"entities",
+								"{{tagEntity}}"
+							],
+							"query": [
+								{
+									"key": "app",
+									"value": "Goalie",
+									"disabled": true
+								},
+								{
+									"key": "tag",
+									"value": "Installs%20Optimized",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tag/:entity/primary",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{appToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tag\": \"A different tag\",\n    \"campaigns\": [\n        {\n            \"app\": \"Goalie\",\n            \"channel\": \"Apple\",\n            \"campaign_id\": \"123\"\n        }\n\n\t]\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/companies/{{companyIdentifier}}/entities/{{tagEntity}}/tags/primary",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"companies",
+								"{{companyIdentifier}}",
+								"entities",
+								"{{tagEntity}}",
+								"tags",
+								"primary"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tag/:entity/subtag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{appToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"subtag\": \"changeup\",\n    \"campaigns\": [\n        {\n            \"app\": \"Goalie\",\n            \"channel\": \"Apple\",\n            \"campaign_id\": \"123\"\n        }\n\t]\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/companies/{{companyIdentifier}}/entities/{{tagEntity}}/tags/subtag",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"companies",
+								"{{companyIdentifier}}",
+								"entities",
+								"{{tagEntity}}",
+								"tags",
+								"subtag"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tag/:entity/delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{appToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"campaigns\": [\n        {\n            \"channel\": \"Apple\",\n            \"campaign_id\": \"123\"\n        }\n\t]\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/companies/{{companyIdentifier}}/entities/{{tagEntity}}/tags/delete",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"companies",
+								"{{companyIdentifier}}",
+								"entities",
+								"{{tagEntity}}",
+								"tags",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tag/update/cube",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{appToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/companies/{{companyIdentifier}}/entities/{{tagEntity}}/tags/update/cube",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"companies",
+								"{{companyIdentifier}}",
+								"entities",
+								"{{tagEntity}}",
+								"tags",
+								"update",
+								"cube"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "query/run",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{longcatAppToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"query\": \"SELECT weekly_cohort AS cohort, event_week AS week, COALESCE(SUM(spend), 0) AS spend, SUM(CASE WHEN event_name = 'af_purchase' THEN cohort_revenue ELSE 0 END) AS total_iapr FROM xyla.performance_cube WHERE event_week IS NOT NULL AND app_display_name = 'Goalie' AND weekly_cohort BETWEEN current_timestamp - INTERVAL '12 WEEK' AND current_timestamp - INTERVAL '2 WEEK' AND campaign_tag = 'Purchase Optimized' AND campaign_name NOT LIKE '%x.y.z%' AND campaign_name NOT LIKE '%AB%' GROUP BY weekly_cohort, event_week ORDER BY weekly_cohort, event_week\"\n}"
+						},
+						"url": {
+							"raw": "{{baseURL}}/companies/{{companyIdentifier}}/query/run",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"companies",
+								"{{companyIdentifier}}",
+								"query",
+								"run"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "query",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{appToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"query\": \"SELECT * FROM `test_tag_ads` WHERE `upload_group` LIKE %s\",\n\t\"substitution_parameters\": [\"%xyla%\"]\n}"
+				},
+				"url": {
+					"raw": "{{baseURL}}/query",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "8fdb1467-526a-4ac1-85ab-7e8251f1a7dc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7748a1be-09a1-43c1-af4b-a922c7ab982f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "3c1c0bff-3fa6-4095-9d21-deba65b7a60c",
+			"key": "baseURL",
+			"value": "http://127.0.0.1:8000"
+		},
+		{
+			"id": "1b8c62e7-1a0c-4648-9e7d-a086341fa055",
+			"key": "appToken",
+			"value": "TOKEN"
+		},
+		{
+			"id": "7a98898c-51d4-4d25-9a6b-5129ab45afbb",
+			"key": "companyIdentifier",
+			"value": "COMPANY"
+		},
+		{
+			"id": "5fbe69d6-768a-4399-9f76-5425cec96cfb",
+			"key": "longcatAppToken",
+			"value": "TOKEN"
+		},
+		{
+			"id": "fd474a47-b205-4a3c-8e74-78ddf83abf45",
+			"key": "tagParserName",
+			"value": "PARSER"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
